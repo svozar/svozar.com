@@ -10,100 +10,124 @@
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <div class="site-shell">
-    <header class="site-header">
-      <nav class="site-nav" aria-label="Primary">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          Menu
-        </button>
-        <ul id="primary-menu" class="nav-list">
-          <li><a href="/" aria-current="page">About</a></li>
-          <li><a href="/media/">Media</a></li>
-          <li><a href="/patents/">Patents</a></li>
-          <li><a href="/research/">Research</a></li>
-        </ul>
-      </nav>
-    </header>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-brand" href="/"><span class="brand-dot" aria-hidden="true"></span>Steve Vozar</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Menu
+      </button>
+      <ul id="primary-menu" class="nav-list">
+        <li><a href="/" aria-current="page">About</a></li>
+        <li><a href="/media/">Media</a></li>
+        <li><a href="/patents/">Patents</a></li>
+        <li><a href="/research/">Research</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="site-body">
-      <main id="content" class="main-content">
-        <section class="hero-intro" aria-label="Introduction">
-          <img
-            class="hero-headshot"
-            src="/assets/img/headshot.jpg"
-            alt="Steve Vozar"
-            width="763"
-            height="763"
-            fetchpriority="high"
-          >
-          <div>
-            <h1 class="hero-name">Steve Vozar, PhD</h1>
-            <p class="hero-tagline">
-              Empowering technical teams to achieve extraordinary results through servant leadership.<br>
-              Specializing in Autonomous Vehicles and Robotics.
-            </p>
-            <div class="hero-links">
-              <a class="hero-link-pill" href="https://linkedin.com/in/svozar" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-                LinkedIn
-              </a>
-              <a class="hero-link-pill" href="https://scholar.google.com/citations?user=u3Bsl8MAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 14.18L5 13.36V17c0 2.21 3.13 4 7 4s7-1.79 7-4v-3.64l-7 3.82z"/>
-                </svg>
-                Google Scholar
-              </a>
-            </div>
-          </div>
-        </section>
+  <section class="hero-band" aria-label="Introduction">
+    <div class="hero-inner">
+      <img
+        class="hero-headshot"
+        src="/assets/img/headshot.jpg"
+        alt="Steve Vozar"
+        width="763"
+        height="763"
+        fetchpriority="high"
+      >
+      <div>
+        <span class="hero-eyebrow">Autonomous Vehicles &amp; Robotics</span>
+        <h1 class="hero-name">Steve Vozar, PhD</h1>
+        <p class="hero-tagline">
+          Empowering technical teams to achieve extraordinary results through servant leadership.
+        </p>
+        <div class="hero-links">
+          <a class="hero-link-pill" href="https://linkedin.com/in/svozar" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a class="hero-link-pill" href="https://scholar.google.com/citations?user=u3Bsl8MAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 14.18L5 13.36V17c0 2.21 3.13 4 7 4s7-1.79 7-4v-3.64l-7 3.82z"/>
+            </svg>
+            Google Scholar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section class="experience-list" aria-label="Experience and Background">
-          <article class="experience-item experience-item--current">
-            <h2 class="experience-role">Technical Lead Manager, Fallbacks &amp; Reliability <span class="experience-org">— Waymo</span></h2>
-            <p>Ensuring the robustness and safety of autonomous driving systems, with a focus on the systems that allow vehicles to navigate complex and unforeseen scenarios.</p>
-          </article>
+  <main id="content" class="page-main">
+    <h2 class="section-heading">Current Role</h2>
+    <article class="feature-role-card">
+      <div class="role-kicker"><span class="role-kicker-dot" aria-hidden="true"></span>Waymo</div>
+      <h3 class="feature-role-title">Technical Lead Manager — Fallbacks &amp; Reliability</h3>
+      <p>Ensuring the robustness and safety of autonomous driving systems, with a focus on the systems that allow vehicles to navigate complex and unforeseen scenarios.</p>
+    </article>
 
-          <article class="experience-item">
-            <h2 class="experience-role">Co-Founder &amp; CTO <span class="experience-org">— <a href="https://maymobility.com" target="_blank" rel="noopener noreferrer">May Mobility</a></span></h2>
-            <p>Led the technology team that deployed the first commercial fleet of self-driving shuttles in the United States, overseeing product, user experience, hardware, software, autonomy, vehicle production, and quality teams.</p>
-          </article>
+    <h2 class="section-heading">Earlier Career &amp; Background</h2>
+    <div class="career-grid">
+      <article class="career-card">
+        <span class="career-org-tag"><a href="https://maymobility.com" target="_blank" rel="noopener noreferrer">May Mobility</a></span>
+        <h3>Co-Founder &amp; CTO</h3>
+        <p>Led the technology team that deployed the first commercial fleet of self-driving shuttles in the United States, overseeing product, user experience, hardware, software, autonomy, vehicle production, and quality teams.</p>
+      </article>
 
-          <article class="experience-item">
-            <h2 class="experience-role">Research Fellow &amp; PhD <span class="experience-org">— University of Michigan</span></h2>
-            <p>Conducted research with the APRIL and PeRL laboratories developing robotic solutions for Ford’s next-generation vehicle thrust and the <a href="https://www.darpa.mil/program/squad-x-core-technologies" target="_blank" rel="noopener noreferrer">DARPA Squad X</a> Core Technologies program. Named a 2012 Human-Robot Interaction Pioneer for PhD work on tele-robotic mobile manipulation.</p>
-          </article>
+      <article class="career-card">
+        <span class="career-org-tag">University of Michigan</span>
+        <h3>Research Fellow &amp; PhD</h3>
+        <p>Conducted research with the APRIL and PeRL laboratories developing robotic solutions for Ford’s next-generation vehicle thrust and the <a href="https://www.darpa.mil/program/squad-x-core-technologies" target="_blank" rel="noopener noreferrer">DARPA Squad X</a> program. Named a 2012 Human-Robot Interaction Pioneer for PhD work on tele-robotic mobile manipulation.</p>
+      </article>
 
-          <article class="experience-item">
-            <h2 class="experience-role">Postdoctoral Researcher <span class="experience-org">— Johns Hopkins University</span></h2>
-            <p>Developed <a href="https://sspd.gsfc.nasa.gov/robotic_refueling_mission.html" target="_blank" rel="noopener noreferrer">tele-robotic satellite servicing technology</a> in collaboration with NASA.</p>
-          </article>
+      <article class="career-card">
+        <span class="career-org-tag">Johns Hopkins University · NASA</span>
+        <h3>Postdoctoral Researcher</h3>
+        <p>Developed <a href="https://sspd.gsfc.nasa.gov/robotic_refueling_mission.html" target="_blank" rel="noopener noreferrer">tele-robotic satellite servicing technology</a> in collaboration with NASA’s Robotic Refueling Mission.</p>
+      </article>
 
-          <article class="experience-item">
-            <h2 class="experience-role">Co-Founder &amp; VP of Technology <span class="experience-org">— Absolute Nano</span></h2>
-            <p>Co-founded a university spin-off developing instruments for nanomaterials research, winning a 2009 R&amp;D 100 Award.</p>
-          </article>
-        </section>
-      </main>
+      <article class="career-card">
+        <span class="career-org-tag">Absolute Nano</span>
+        <h3>Co-Founder &amp; VP of Technology</h3>
+        <p>Co-founded a university spin-off developing instruments for nanomaterials research, winning a 2009 R&amp;D 100 Award.</p>
+      </article>
     </div>
 
-    <footer class="site-footer">
+    <h2 class="section-heading">Explore</h2>
+    <div class="explore-grid">
+      <a class="explore-card" href="/patents/">
+        <span class="explore-card-title">Patents <span aria-hidden="true">&rarr;</span></span>
+        <span class="explore-card-desc">Granted patents and applications in AV trajectory planning, safety, and sensor calibration.</span>
+      </a>
+      <a class="explore-card" href="/media/">
+        <span class="explore-card-title">Media <span aria-hidden="true">&rarr;</span></span>
+        <span class="explore-card-desc">Talks, interviews, and podcast appearances on autonomous vehicles and deployment.</span>
+      </a>
+      <a class="explore-card" href="/research/">
+        <span class="explore-card-title">Research Archive <span aria-hidden="true">&rarr;</span></span>
+        <span class="explore-card-desc">Peer-reviewed publications, posters, and prior academic robotics work.</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
       <p>&copy; Steve Vozar, PhD</p>
       <p>svozar.com</p>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   <script src="/assets/js/site.js" defer></script>
 </body>
