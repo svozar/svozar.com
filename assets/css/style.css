@@ -32,7 +32,7 @@
   --shadow-card: 0 4px 14px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
   --shadow-card-hover: 0 10px 28px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.05);
 
-  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-display: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --max-width: 960px;
 }
@@ -206,22 +206,28 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   Clean Editorial Light Hero (About Page)
+   Photo-Backed Atmospheric Hero — Sans-Serif (About Page)
    ========================================================================== */
 
 .hero-band {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-color);
-  padding: 3.25rem 1.5rem 3.25rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #0f172a;
+  background-image:
+    linear-gradient(105deg, rgba(11, 19, 36, 0.92) 0%, rgba(15, 23, 42, 0.8) 55%, rgba(15, 23, 42, 0.58) 100%),
+    url("/assets/img/banner.jpg");
+  background-size: cover;
+  background-position: center 42%;
+  color: #f8fafc;
+  padding: 3.5rem 1.5rem 3.5rem;
 }
 
 .hero-inner {
   max-width: var(--max-width);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 188px;
-  gap: 2.75rem;
+  grid-template-columns: 164px 1fr;
+  gap: 2.25rem;
   align-items: center;
 }
 
@@ -230,47 +236,48 @@ button:focus-visible {
 }
 
 .hero-headshot {
-  width: 188px;
-  height: 188px;
+  order: -1;
+  width: 164px;
+  height: 164px;
   object-fit: cover;
   border-radius: 16px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
 }
 
 .hero-eyebrow {
   display: block;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.45rem;
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #93c5fd;
 }
 
 .hero-name {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.6rem;
   font-family: var(--font-display);
-  font-size: 2.75rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  color: #ffffff;
 }
 
 .hero-tagline {
   margin: 0;
   max-width: 54ch;
-  font-size: 1.1rem;
+  font-size: 1.075rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #e2e8f0;
 }
 
 .hero-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 1.4rem;
+  margin-top: 1.35rem;
 }
 
 .hero-link-pill {
@@ -280,19 +287,20 @@ button:focus-visible {
   padding: 0.48rem 0.95rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--text-primary);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-strong);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
 }
 
 .hero-link-pill:hover {
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-color: var(--accent-light);
+  color: #ffffff;
+  background: rgba(37, 99, 235, 0.55);
+  border-color: rgba(147, 197, 253, 0.75);
   transform: translateY(-1px);
   text-decoration: none;
 }
@@ -303,38 +311,40 @@ button:focus-visible {
   flex-shrink: 0;
 }
 
-/* Subpage Editorial Header Band */
+/* Subpage Clean Sans-Serif Header Band */
 .page-banner {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: #ffffff;
   color: var(--text-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: 2.25rem 1.5rem 2rem;
+  padding: 2.15rem 1.5rem 2rem;
 }
 
 .page-banner-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  border-left: 4px solid var(--accent);
+  padding-left: 1.15rem;
 }
 
 .page-banner .page-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
 }
 
 .page-banner-sub {
-  margin: 0.5rem 0 0;
+  margin: 0.45rem 0 0;
   max-width: 64ch;
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
 }
 
 .page-banner .breadcrumb {
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .page-banner .breadcrumb a {
