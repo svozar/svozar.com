@@ -3,150 +3,371 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Steve Vozar, PhD | Autonomous Vehicles, Robotics &amp; Technical Leadership</title>
-  <meta name="description" content="Steve Vozar, PhD — Technical Lead Manager for Fallbacks and Reliability at Waymo. Empowering technical teams to achieve extraordinary results through servant leadership.">
-  <link rel="canonical" href="https://svozar.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://svozar.com/">
-  <meta property="og:title" content="Steve Vozar, PhD | Autonomous Vehicles, Robotics &amp; Technical Leadership">
-  <meta property="og:description" content="Steve Vozar, PhD — Technical Lead Manager for Fallbacks and Reliability at Waymo. Empowering technical teams to achieve extraordinary results through servant leadership.">
-  <meta property="og:image" content="https://svozar.com/assets/img/headshot.jpg">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Steve Vozar, PhD | Autonomous Vehicles, Robotics &amp; Technical Leadership">
-  <meta name="twitter:description" content="Steve Vozar, PhD — Technical Lead Manager for Fallbacks and Reliability at Waymo. Empowering technical teams to achieve extraordinary results through servant leadership.">
-  <meta name="twitter:image" content="https://svozar.com/assets/img/headshot.jpg">
+  <title>Steve Vozar, PhD — Autonomous Vehicles, Robotics &amp; Technical Leadership</title>
+  <meta name="description" content="Steve Vozar, PhD — Technical Lead Manager for Fallbacks and Reliability at Waymo. Former Co-Founder &amp; CTO of May Mobility. Robotics PhD, inventor, and servant leader.">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicon-192.png">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7G88GH63G0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-7G88GH63G0");
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/wild.css">
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Primary">
-      <a class="site-brand" href="/"><span class="brand-dot" aria-hidden="true"></span>Steve Vozar</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        Menu
-      </button>
-      <ul id="primary-menu" class="nav-list">
-        <li><a href="/" aria-current="page">About</a></li>
-        <li><a href="/media/">Media</a></li>
-        <li><a href="/patents/">Patents</a></li>
+  <!-- Floating Glassmorphic Navbar -->
+  <header class="nav-wrap">
+    <nav class="nav-bar" aria-label="Primary">
+      <a class="nav-brand" href="#top">
+        <span class="status-pulse" aria-hidden="true"></span>
+        Steve Vozar, PhD
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#career">Career</a></li>
+        <li><a href="#patents">Patents</a></li>
+        <li><a href="#media">Media</a></li>
         <li><a href="/research/">Research</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle light/dark theme" title="Toggle light / dark mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+        </button>
+      </div>
     </nav>
   </header>
 
-  <section class="hero-band" aria-label="Introduction">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <span class="hero-eyebrow">Autonomous Vehicles · Robotics · Leadership</span>
-        <h1 class="hero-name">Steve Vozar, PhD</h1>
-        <p class="hero-tagline">
-          Empowering technical teams to achieve extraordinary results through servant leadership.
+  <!-- Hero with Live Autonomous Trajectory & Fallback Canvas -->
+  <section id="top" class="hero">
+    <canvas id="trajectory-canvas" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="hero-container">
+      <div>
+        <div class="hero-badge">
+          <span class="status-pulse" aria-hidden="true"></span>
+          WAYMO · FALLBACKS &amp; RELIABILITY
+        </div>
+        <h1 class="hero-title">
+          Building autonomous systems people can <span class="gradient-text">trust when it matters most.</span>
+        </h1>
+        <p class="hero-lead">
+          I’m <strong>Steve Vozar, PhD</strong> — Technical Lead Manager for Fallbacks and Reliability at <strong>Waymo</strong>, and former Co-Founder &amp; CTO of <strong>May Mobility</strong>. I empower technical teams to achieve extraordinary results through servant leadership.
         </p>
-        <div class="hero-links">
-          <a class="hero-link-pill" href="https://linkedin.com/in/svozar" target="_blank" rel="noopener noreferrer">
+        <div class="hero-cta-row">
+          <a class="btn btn-primary" href="https://linkedin.com/in/svozar" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
             </svg>
-            LinkedIn
+            Connect on LinkedIn
           </a>
-          <a class="hero-link-pill" href="https://scholar.google.com/citations?user=u3Bsl8MAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=u3Bsl8MAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm0 14.18L5 13.36V17c0 2.21 3.13 4 7 4s7-1.79 7-4v-3.64l-7 3.82z"/>
             </svg>
             Google Scholar
           </a>
+          <a class="btn btn-ghost" href="#patents">Explore Patents &rarr;</a>
         </div>
       </div>
-      <img
-        class="hero-headshot"
-        src="/assets/img/headshot.jpg"
-        alt="Steve Vozar"
-        width="763"
-        height="763"
-        fetchpriority="high"
-      >
+
+      <div class="portrait-frame">
+        <div class="portrait-card">
+          <img src="/assets/img/headshot.jpg" alt="Steve Vozar, PhD" width="763" height="763" fetchpriority="high">
+        </div>
+        <div class="telemetry-hud" title="Interactive background simulation">
+          <span class="hud-status">
+            <span id="hud-dot" class="hud-dot" aria-hidden="true"></span>
+            <span id="hud-label">MODE: NOMINAL_PLANNER</span>
+          </span>
+          <button id="trigger-fallback" class="hud-btn" type="button">Test Fallback</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main id="content" class="page-main">
-    <h2 class="section-heading">Current Role</h2>
-    <article class="feature-role-card">
-      <div class="role-kicker"><span class="role-kicker-dot" aria-hidden="true"></span>Waymo</div>
-      <h3 class="feature-role-title">Technical Lead Manager — Fallbacks &amp; Reliability</h3>
-      <p>Ensuring the robustness and safety of autonomous driving systems, with a focus on the systems that allow vehicles to navigate complex and unforeseen scenarios.</p>
-    </article>
-
-    <h2 class="section-heading">Earlier Career &amp; Background</h2>
-    <div class="career-grid">
-      <article class="career-card">
-        <span class="career-org-tag"><a href="https://maymobility.com" target="_blank" rel="noopener noreferrer">May Mobility</a></span>
-        <h3>Co-Founder &amp; CTO</h3>
-        <p>Led the technology team that deployed the first commercial fleet of self-driving shuttles in the United States, overseeing product, user experience, hardware, software, autonomy, vehicle production, and quality teams.</p>
-      </article>
-
-      <article class="career-card">
-        <span class="career-org-tag">University of Michigan</span>
-        <h3>Research Fellow &amp; PhD</h3>
-        <p>Conducted research with the APRIL and PeRL laboratories developing robotic solutions for Ford’s next-generation vehicle thrust and the <a href="https://www.darpa.mil/program/squad-x-core-technologies" target="_blank" rel="noopener noreferrer">DARPA Squad X</a> program. Named a 2012 Human-Robot Interaction Pioneer for PhD work on tele-robotic mobile manipulation.</p>
-      </article>
-
-      <article class="career-card">
-        <span class="career-org-tag">Johns Hopkins University · NASA</span>
-        <h3>Postdoctoral Researcher</h3>
-        <p>Developed <a href="https://sspd.gsfc.nasa.gov/robotic_refueling_mission.html" target="_blank" rel="noopener noreferrer">tele-robotic satellite servicing technology</a> in collaboration with NASA’s Robotic Refueling Mission.</p>
-      </article>
-
-      <article class="career-card">
-        <span class="career-org-tag">Absolute Nano</span>
-        <h3>Co-Founder &amp; VP of Technology</h3>
-        <p>Co-founded a university spin-off developing instruments for nanomaterials research, winning a 2009 R&amp;D 100 Award.</p>
-      </article>
+  <!-- Bento Grid: Impact & Leadership Pillars -->
+  <section id="impact" class="section reveal">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">01 / At a Glance</div>
+        <h2 class="section-title">Safety-critical robotics, from lab to commercial fleet</h2>
+      </div>
     </div>
 
-    <h2 class="section-heading">Explore</h2>
-    <div class="explore-grid">
-      <a class="explore-card" href="/patents/">
-        <span class="explore-card-title">Patents <span aria-hidden="true">&rarr;</span></span>
-        <span class="explore-card-desc">Granted patents and applications in AV trajectory planning, safety, and sensor calibration.</span>
-      </a>
-      <a class="explore-card" href="/media/">
-        <span class="explore-card-title">Media <span aria-hidden="true">&rarr;</span></span>
-        <span class="explore-card-desc">Talks, interviews, and podcast appearances on autonomous vehicles and deployment.</span>
-      </a>
-      <a class="explore-card" href="/research/">
-        <span class="explore-card-title">Research Archive <span aria-hidden="true">&rarr;</span></span>
-        <span class="explore-card-desc">Peer-reviewed publications, posters, and prior academic robotics work.</span>
-      </a>
-    </div>
-  </main>
+    <div class="bento-grid">
+      <article class="bento-card span-7">
+        <div class="bento-tag"><span class="status-pulse" aria-hidden="true"></span>Current · Waymo</div>
+        <h3>Fallbacks &amp; Reliability Leadership</h3>
+        <p>Ensuring the robustness and safety of autonomous driving systems, with a focus on the fallback architectures that allow vehicles to navigate complex, edge-case, and unforeseen real-world scenarios safely.</p>
+      </article>
 
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <p>&copy; Steve Vozar, PhD</p>
-      <p>svozar.com</p>
+      <article class="bento-card span-5">
+        <div class="bento-tag">Commercial Deployment</div>
+        <h3>1st U.S. Commercial AV Shuttle Fleet</h3>
+        <p>As Co-Founder &amp; CTO of <a href="https://maymobility.com" target="_blank" rel="noopener noreferrer">May Mobility</a>, scaled the engineering organization across autonomy, hardware, software, UX, vehicle production, and quality.</p>
+      </article>
+
+      <a class="bento-card span-4" href="#patents">
+        <div class="stat-number">7</div>
+        <h3>AV Patent Families</h3>
+        <p>Granted patents and published applications across Waymo LLC and May Mobility in trajectory planning, safety operations, and sensor calibration.</p>
+      </a>
+
+      <a class="bento-card span-4" href="/research/publications/">
+        <div class="stat-number">13</div>
+        <h3>Peer-Reviewed Papers</h3>
+        <p>Published at ICRA, IROS, ACM/IEEE HRI, Robotica, and IFAC. Named a 2012 Human-Robot Interaction Pioneer.</p>
+      </a>
+
+      <article class="bento-card span-4">
+        <div class="stat-number">R&amp;D 100</div>
+        <h3>Award-Winning Spin-Off</h3>
+        <p>Co-founded Absolute Nano as VP of Technology, developing automated nanomaterials instrumentation recognized with a 2009 R&amp;D 100 Award.</p>
+      </article>
+
+      <article class="bento-card span-4">
+        <div class="bento-tag">Focus Pillar</div>
+        <h3>Safety &amp; Fallback Systems</h3>
+        <p>Designing graceful degradation, multimodal health monitoring, and trajectory fallback maneuvers for real-world autonomy.</p>
+      </article>
+
+      <article class="bento-card span-4">
+        <div class="bento-tag">Focus Pillar</div>
+        <h3>Servant Leadership</h3>
+        <p>Building high-trust engineering cultures—org planning, hiring roadmaps, technical milestones, and leadership mentoring.</p>
+      </article>
+
+      <article class="bento-card span-4">
+        <div class="bento-tag">Focus Pillar</div>
+        <h3>Product &amp; IP Strategy</h3>
+        <p>Bridging full-stack hardware/software execution with product-market fit and defensible intellectual property.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Career Timeline -->
+  <section id="career" class="section reveal">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">02 / Trajectory</div>
+        <h2 class="section-title">Career &amp; Research Background</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <article class="timeline-item timeline-item--current">
+        <div class="timeline-meta"><span>CURRENT</span> · <span>WAYMO</span></div>
+        <h3>Technical Lead Manager — Fallbacks &amp; Reliability</h3>
+        <p>Leading engineering teams focused on the robustness, reliability, and safety fallback systems that enable autonomous vehicles to handle complex and unforeseen road scenarios.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-meta"><span>CO-FOUNDER &amp; CTO</span> · <span>MAY MOBILITY</span></div>
+        <h3>Commercial Self-Driving Shuttles</h3>
+        <p>Co-founded <a href="https://maymobility.com" target="_blank" rel="noopener noreferrer">May Mobility</a> and led the technology team that deployed the first commercial fleet of self-driving shuttles in the United States, overseeing product, UX, hardware, software, autonomy, vehicle production, and quality.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-meta"><span>RESEARCH FELLOW</span> · <span>UNIVERSITY OF MICHIGAN (APRIL &amp; PeRL LABS)</span></div>
+        <h3>Next-Generation Automated Vehicles &amp; DARPA Squad X</h3>
+        <p>Developed sensor fusion and robotic solutions for Ford’s next-generation vehicle thrust and the <a href="https://www.darpa.mil/program/squad-x-core-technologies" target="_blank" rel="noopener noreferrer">DARPA Squad X</a> Core Technologies program, including autonomous testing at Mcity.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-meta"><span>POSTDOCTORAL RESEARCHER</span> · <span>JOHNS HOPKINS UNIVERSITY · NASA</span></div>
+        <h3>Tele-Robotic On-Orbit Satellite Servicing</h3>
+        <p>Developed visual/haptic user interfaces and latency-mitigating control strategies for <a href="https://sspd.gsfc.nasa.gov/robotic_refueling_mission.html" target="_blank" rel="noopener noreferrer">NASA’s Robotic Refueling Mission</a>.</p>
+      </article>
+
+      <article class="timeline-item">
+        <div class="timeline-meta"><span>PHD &amp; STARTUP CO-FOUNDER</span> · <span>UNIVERSITY OF MICHIGAN · ABSOLUTE NANO</span></div>
+        <h3>Human-Robot Interaction Pioneer &amp; R&amp;D 100 Award</h3>
+        <p>Named a 2012 HRI Pioneer for doctoral research on tele-robotic mobile manipulation (<a href="http://deepblue.lib.umich.edu/handle/2027.42/102482" target="_blank" rel="noopener noreferrer">dissertation</a>). Earlier co-founded Absolute Nano as VP of Technology, winning a 2009 R&amp;D 100 Award.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Interactive Patents Explorer -->
+  <section id="patents" class="section reveal">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">03 / Intellectual Property</div>
+        <h2 class="section-title">Patents &amp; Applications</h2>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter patents">
+        <button class="filter-pill is-active" type="button" data-filter="all">All (7)</button>
+        <button class="filter-pill" type="button" data-filter="waymo">Waymo</button>
+        <button class="filter-pill" type="button" data-filter="may">May Mobility</button>
+        <button class="filter-pill" type="button" data-filter="granted">Granted</button>
+        <button class="filter-pill" type="button" data-filter="application">Applications</button>
+      </div>
+    </div>
+
+    <div class="patent-grid">
+      <article class="patent-card" data-tags="waymo granted">
+        <div>
+          <div class="patent-top">
+            <span class="badge-granted">Granted</span>
+            <span class="patent-org">Waymo LLC</span>
+          </div>
+          <h3>Planning trajectories for controlling autonomous vehicles</h3>
+          <p>Evaluates candidate nominal driving paths alongside safety fallback maneuvers—such as safe stopping locations and associated costs—to select smooth, reliable trajectories under dynamic road conditions.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/EP4306382B1/en" target="_blank" rel="noopener noreferrer">EP4306382B1</a>
+          <a class="patent-num" href="https://patents.google.com/patent/US20240017738A1/en" target="_blank" rel="noopener noreferrer">US20240017738A1</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may granted">
+        <div>
+          <div class="patent-top">
+            <span class="badge-granted">Granted</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Method and system for dynamically curating autonomous vehicle policies</h3>
+          <p>Dynamically selects and curates behavioral driving policies in real time, enabling an autonomous vehicle to adapt its decision-making set to changing traffic, road geometry, and operational contexts.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US12594961B2/en" target="_blank" rel="noopener noreferrer">US12594961B2</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may granted">
+        <div>
+          <div class="patent-top">
+            <span class="badge-granted">Granted</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Method and system for dynamically updating an environmental representation</h3>
+          <p>Continuously updates an autonomous vehicle’s internal world model by fusing live sensor observations with prior map and scene data to maintain an accurate representation of dynamic surroundings.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US12371067B2/en" target="_blank" rel="noopener noreferrer">US12371067B2</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may granted">
+        <div>
+          <div class="patent-top">
+            <span class="badge-granted">Granted</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Intelligently calibrating infrastructure devices using onboard AV sensors</h3>
+          <p>Uses calibrated onboard vehicle sensors to automatically localize and align fixed roadside infrastructure sensors (smart-intersection cameras or LiDAR), improving V2I perception without manual calibration.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US12099140B2/en" target="_blank" rel="noopener noreferrer">US12099140B2</a>
+          <a class="patent-num" href="https://patents.google.com/patent/US11525887B2/en" target="_blank" rel="noopener noreferrer">US11525887B2</a>
+          <a class="patent-num" href="https://patents.google.com/patent/US10969470B2/en" target="_blank" rel="noopener noreferrer">US10969470B2</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may granted">
+        <div>
+          <div class="patent-top">
+            <span class="badge-granted">Granted</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Multi-perspective system and method for behavioral policy selection</h3>
+          <p>Simulates candidate driving behaviors from multiple agent perspectives—accounting for how nearby road users are likely to react—to choose safe, socially aware maneuvers.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US11269332B2/en" target="_blank" rel="noopener noreferrer">US11269332B2</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may application">
+        <div>
+          <div class="patent-top">
+            <span class="badge-app">Application</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Multimodal safety operations with an autonomous agent</h3>
+          <p>Combines independent subsystem health monitors with an autonomous state machine to manage safe operational transitions—including degraded modes, fallback maneuvers, and safe stops—when anomalies occur.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US20240071221A1/en" target="_blank" rel="noopener noreferrer">US20240071221A1</a>
+          <a class="patent-num" href="https://patents.google.com/patent/US20200168085A1/en" target="_blank" rel="noopener noreferrer">US20200168085A1</a>
+        </div>
+      </article>
+
+      <article class="patent-card" data-tags="may application">
+        <div>
+          <div class="patent-top">
+            <span class="badge-app">Application</span>
+            <span class="patent-org">May Mobility, Inc.</span>
+          </div>
+          <h3>Intelligent arbitration between autonomous and manual operation signals</h3>
+          <p>Resolves competing or overlapping steering, braking, and acceleration commands between autonomous planners and human operators, ensuring smooth and safe handovers.</p>
+        </div>
+        <div class="patent-nums">
+          <a class="patent-num" href="https://patents.google.com/patent/US20200057441A1/en" target="_blank" rel="noopener noreferrer">US20200057441A1</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Speaking & Media Showcase -->
+  <section id="media" class="section reveal">
+    <div class="section-header">
+      <div>
+        <div class="section-kicker">04 / Talks &amp; Press</div>
+        <h2 class="section-title">Selected Media &amp; Speaking</h2>
+      </div>
+      <a class="btn btn-ghost" href="/media/">Full Media Page &rarr;</a>
+    </div>
+
+    <div class="media-showcase">
+      <div class="stage-card">
+        <h3>Detroit Homecoming &amp; Industry Keynotes</h3>
+        <p>Speaking on real-world autonomous vehicle deployment, safety engineering, and scaling robotics teams. Photo by Dustin Walsh.</p>
+        <div>
+          <a class="btn btn-primary" href="/media/">Watch Talks &amp; Interviews &rarr;</a>
+        </div>
+      </div>
+
+      <div class="media-list">
+        <a class="media-link-card" href="https://vimeo.com/316129278" target="_blank" rel="noopener noreferrer">
+          <span class="media-link-meta">BloombergNEF Summit SF · 2019</span>
+          <span class="media-link-title">One-on-One: Commercial AV Deployment &rarr;</span>
+        </a>
+        <a class="media-link-card" href="https://www.youtube.com/watch?v=y1efchUKsZg" target="_blank" rel="noopener noreferrer">
+          <span class="media-link-meta">Video Feature · A Data-Driven Future</span>
+          <span class="media-link-title">Self-Driving Cars “Talk” While They Drive &rarr;</span>
+        </a>
+        <a class="media-link-card" href="https://www.autonocast.com/blog/2019/3/15/134-lessons-from-las-vegas-about-av-deployment" target="_blank" rel="noopener noreferrer">
+          <span class="media-link-meta">The Autonocast · Ep. 134</span>
+          <span class="media-link-title">Lessons From Las Vegas About AV Deployment &rarr;</span>
+        </a>
+        <a class="media-link-card" href="/research/">
+          <span class="media-link-meta">Academic Archive</span>
+          <span class="media-link-title">Publications, Posters &amp; Teaching (UMich / JHU) &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wild-footer">
+    <div class="wild-footer-inner">
+      <p>&copy; Steve Vozar, PhD · svozar.com</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/svozar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user=u3Bsl8MAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="/patents/">Patents</a>
+        <a href="/media/">Media</a>
+        <a href="/research/">Research Archive</a>
+      </div>
     </div>
   </footer>
 
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/wild.js" defer></script>
 </body>
 </html>
