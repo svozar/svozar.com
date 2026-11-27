@@ -3,6 +3,16 @@
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 0. Mobile menu toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
   // 1. Scroll progress bar
   const progressBar = document.querySelector(".scroll-progress");
   if (progressBar) {

@@ -159,9 +159,30 @@ img {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  color: var(--accent-strong);
+  background: rgba(29, 78, 216, 0.08);
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-solid);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--text);
-  background: var(--bg-pill);
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ==========================================================================
@@ -846,8 +867,31 @@ img {
 }
 
 @media (max-width: 640px) {
+  .nav-bar {
+    flex-wrap: wrap;
+    border-radius: 20px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
   .nav-links {
     display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding-top: 0.5rem;
+    margin-top: 0.45rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    border-radius: 10px;
   }
 
   .hero {

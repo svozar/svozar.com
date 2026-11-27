@@ -36,16 +36,24 @@
   <!-- Floating Glassmorphic Navbar -->
   <header class="nav-wrap">
     <nav class="nav-bar" aria-label="Primary">
-      <a class="nav-brand" href="#top">
+      <a class="nav-brand" href="/">
         <span class="status-pulse" aria-hidden="true"></span>
         Steve Vozar, PhD
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#impact">Impact</a></li>
-        <li><a href="#career">Career</a></li>
-        <li><a href="#patents">Patents</a></li>
-        <li><a href="#media">Media</a></li>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        Menu
+      </button>
+
+      <ul id="primary-menu" class="nav-links">
+        <li><a href="/" aria-current="page">About</a></li>
+        <li><a href="/patents/">Patents</a></li>
+        <li><a href="/media/">Media</a></li>
         <li><a href="/research/">Research</a></li>
       </ul>
     </nav>
