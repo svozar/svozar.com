@@ -1,5 +1,5 @@
 // ==========================================================================
-// svozar.com — Interactive Trajectory Planner, Spotlight, Filters & Theme
+// svozar.com — Light-Mode Autonomous Trajectory Canvas, Spotlight & Filters
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,24 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  // 2. Dark / Light theme toggle
-  const themeBtn = document.getElementById("theme-toggle");
-  const savedTheme = localStorage.getItem("svozar-wild-theme");
-  if (savedTheme === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
-  themeBtn?.addEventListener("click", () => {
-    const isLight = document.documentElement.getAttribute("data-theme") === "light";
-    if (isLight) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("svozar-wild-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("svozar-wild-theme", "light");
-    }
-  });
-
-  // 3. Mouse-tracking radial spotlight on Bento cards
+  // 2. Mouse-tracking radial spotlight on Bento cards
   document.querySelectorAll(".bento-card").forEach((card) => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
@@ -39,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. Scroll-reveal animations
+  // 3. Scroll-reveal animations
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
@@ -55,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // 5. Interactive Patent filter pills
+  // 4. Interactive Patent filter pills
   const filterBtns = document.querySelectorAll(".filter-pill");
   const patentCards = document.querySelectorAll(".patent-card");
   filterBtns.forEach((btn) => {
@@ -71,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 6. Live Autonomous Trajectory & Fallback Planner Canvas
+  // 5. Subtle Light-Mode Autonomous Trajectory & Multi-Policy Canvas
   const canvas = document.getElementById("trajectory-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
@@ -79,18 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let w = 0;
   let h = 0;
   let t = 0;
-  let fallbackTimer = 0;
-  const FALLBACK_DURATION = 260; // frames
-
-  const hudDot = document.getElementById("hud-dot");
-  const hudLabel = document.getElementById("hud-label");
-  const triggerBtn = document.getElementById("trigger-fallback");
-
-  triggerBtn?.addEventListener("click", () => {
-    fallbackTimer = FALLBACK_DURATION;
-    hudDot?.classList.add("fallback");
-    if (hudLabel) hudLabel.textContent = "MODE: FALLBACK_MANEUVER";
-  });
 
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -103,37 +74,27 @@ document.addEventListener("DOMContentLoaded", () => {
   resize();
   window.addEventListener("resize", resize);
 
-  // Subtle ambient perception points
-  const lidarPts = Array.from({ length: 48 }, () => ({
+  const lidarPts = Array.from({ length: 44 }, () => ({
     x: Math.random(),
     y: Math.random(),
-    r: 1 + Math.random() * 1.8,
+    r: 1.2 + Math.random() * 1.8,
     phase: Math.random() * Math.PI * 2,
   }));
 
   function laneY(x, offset = 0) {
     const nx = x / Math.max(w, 1);
-    return h * 0.56 + Math.sin(nx * 4.2 - t * 0.012) * 38 + Math.cos(nx * 2.1 + t * 0.007) * 18 + offset;
+    return h * 0.56 + Math.sin(nx * 4.0 - t * 0.01) * 36 + Math.cos(nx * 2.0 + t * 0.006) * 16 + offset;
   }
 
   function draw() {
     t += 1;
     ctx.clearRect(0, 0, w, h);
 
-    const isFallback = fallbackTimer > 0;
-    if (fallbackTimer > 0) {
-      fallbackTimer -= 1;
-      if (fallbackTimer === 0) {
-        hudDot?.classList.remove("fallback");
-        if (hudLabel) hudLabel.textContent = "MODE: NOMINAL_PLANNER";
-      }
-    }
-
-    // Subtle grid lines
-    ctx.strokeStyle = "rgba(148, 163, 184, 0.055)";
+    // Subtle blueprint grid
+    ctx.strokeStyle = "rgba(15, 23, 42, 0.04)";
     ctx.lineWidth = 1;
     const step = 64;
-    const shiftX = (t * 0.4) % step;
+    const shiftX = (t * 0.35) % step;
     for (let x = -shiftX; x < w; x += step) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
@@ -147,12 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.stroke();
     }
 
-    // Lidar / perception scatter dots
+    // Soft ambient perception points
     lidarPts.forEach((p) => {
-      const px = ((p.x * w - t * 0.35) % w + w) % w;
+      const px = ((p.x * w - t * 0.3) % w + w) % w;
       const py = p.y * h;
-      const alpha = 0.14 + 0.18 * Math.sin(t * 0.04 + p.phase);
-      ctx.fillStyle = `rgba(56, 189, 248, ${alpha.toFixed(3)})`;
+      const alpha = 0.08 + 0.1 * Math.sin(t * 0.035 + p.phase);
+      ctx.fillStyle = `rgba(29, 78, 216, ${alpha.toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(px, py, p.r, 0, Math.PI * 2);
       ctx.fill();
@@ -160,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Corridor boundaries
     [-70, 70].forEach((off) => {
-      ctx.strokeStyle = "rgba(148, 163, 184, 0.12)";
+      ctx.strokeStyle = "rgba(15, 23, 42, 0.09)";
       ctx.setLineDash([6, 10]);
       ctx.lineWidth = 1.25;
       ctx.beginPath();
@@ -172,14 +133,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     ctx.setLineDash([]);
 
-    // Candidate multi-policy branches (subtle)
+    // Candidate multi-policy branches
     const egoX = w * 0.28;
-    const egoY = laneY(egoX, isFallback ? Math.sin((1 - fallbackTimer / FALLBACK_DURATION) * Math.PI) * 52 : 0);
+    const egoY = laneY(egoX, 0);
 
-    [-46, 46].forEach((branchOff, idx) => {
-      const highlight = isFallback && idx === 1;
-      ctx.strokeStyle = highlight ? "rgba(245, 158, 11, 0.85)" : "rgba(56, 189, 248, 0.16)";
-      ctx.lineWidth = highlight ? 2.8 : 1.2;
+    [-46, 46].forEach((branchOff) => {
+      ctx.strokeStyle = "rgba(2, 132, 199, 0.18)";
+      ctx.lineWidth = 1.4;
       ctx.beginPath();
       ctx.moveTo(egoX, egoY);
       for (let dx = 12; dx <= w * 0.55; dx += 14) {
@@ -191,9 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.stroke();
     });
 
-    // Nominal trajectory spline
-    ctx.strokeStyle = isFallback ? "rgba(148, 163, 184, 0.25)" : "rgba(56, 189, 248, 0.72)";
-    ctx.lineWidth = isFallback ? 1.5 : 2.6;
+    // Primary nominal trajectory spline
+    ctx.strokeStyle = "rgba(29, 78, 216, 0.34)";
+    ctx.lineWidth = 2.4;
     ctx.beginPath();
     for (let x = 0; x <= w; x += 14) {
       const y = laneY(x, 0);
@@ -201,28 +161,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     ctx.stroke();
 
-    // Simulated obstacle when fallback is active
-    if (isFallback) {
-      const obsX = egoX + 145;
-      const obsY = laneY(obsX, 0);
-      ctx.fillStyle = "rgba(245, 158, 11, 0.22)";
-      ctx.beginPath();
-      ctx.arc(obsX, obsY, 22 + Math.sin(t * 0.2) * 3, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = "rgba(245, 158, 11, 0.9)";
-      ctx.lineWidth = 1.8;
-      ctx.strokeRect(obsX - 10, obsY - 10, 20, 20);
-    }
-
-    // Ego vehicle node + perception ring
-    ctx.fillStyle = isFallback ? "rgba(245, 158, 11, 0.18)" : "rgba(56, 189, 248, 0.18)";
+    // Subtle ego vehicle node + pulse ring
+    ctx.fillStyle = "rgba(29, 78, 216, 0.1)";
     ctx.beginPath();
-    ctx.arc(egoX, egoY, 18 + Math.sin(t * 0.08) * 2.5, 0, Math.PI * 2);
+    ctx.arc(egoX, egoY, 17 + Math.sin(t * 0.07) * 2.5, 0, Math.PI * 2);
     ctx.fill();
 
-    ctx.fillStyle = isFallback ? "#f59e0b" : "#38bdf8";
+    ctx.fillStyle = "rgba(29, 78, 216, 0.72)";
     ctx.beginPath();
-    ctx.arc(egoX, egoY, 5.5, 0, Math.PI * 2);
+    ctx.arc(egoX, egoY, 4.8, 0, Math.PI * 2);
     ctx.fill();
 
     requestAnimationFrame(draw);
