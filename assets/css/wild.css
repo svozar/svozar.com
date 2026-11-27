@@ -743,7 +743,7 @@ img {
 }
 
 .stage-card p {
-  margin: 0 0 1.25rem;
+  margin: 0;
   color: var(--text-secondary);
   font-size: 0.94rem;
 }
