@@ -68,6 +68,7 @@ a:hover {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -227,10 +228,10 @@ img {
 .hero-title {
   margin: 0 0 1.05rem;
   font-family: var(--font-display);
-  font-size: clamp(2.55rem, 5.2vw, 4.15rem);
+  font-size: clamp(2.25rem, 4.4vw, 3.45rem);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
   color: var(--text);
 }
 
@@ -308,20 +309,21 @@ img {
 .portrait-frame {
   position: relative;
   justify-self: center;
-  width: min(225px, 100%);
+  width: 284px;
 }
 
 .portrait-card {
   position: relative;
   border-radius: 50%;
-  padding: 6px;
+  padding: 8px;
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--border);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.05);
 }
 
 .portrait-card img {
-  width: 100%;
+  width: 268px;
+  height: 268px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 20%;
@@ -826,7 +828,12 @@ img {
 
   .portrait-frame {
     order: -1;
-    width: min(230px, 100%);
+    width: 196px;
+  }
+
+  .portrait-card img {
+    width: 180px;
+    height: 180px;
   }
 
   .span-7, .span-5, .span-4, .span-6, .span-8 {
